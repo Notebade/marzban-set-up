@@ -27,6 +27,16 @@ apt install socat
 ```sh
 curl https://get.acme.sh | sh -s email=your@mail.com
 ```
+
+ 
+ ## Устанавливаем панель Marzban
+ Делается это всего одной командой:
+ ```sh
+ sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install
+ ```
+После завершения работы скрипта установки, вы увидите логи работы Marzban, просто нажмите CTRL+C чтобы прекратить их отображение.
+
+
 Далее создаем переменную в которой будет хранится ваш поддомен:
 ```sh
 export DOMAIN=youword.duckdns.org
@@ -41,13 +51,6 @@ mkdir -p /var/lib/marzban/certs
   --key-file "/var/lib/marzban/certs/$DOMAIN.cer.key"
  ```
  После завершения работы утилиты в папке /var/lib/marzban/certs/ будут созданы два файла с именами youword.duckdns.org.cer и youword.duckdns.org.cer.key - это и есть файлы сертификата.
- 
- ## Устанавливаем панель Marzban
- Делается это всего одной командой:
- ```sh
- sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install
- ```
-После завершения работы скрипта установки, вы увидите логи работы Marzban, просто нажмите CTRL+C чтобы прекратить их отображение.
 
 ## Подключаем SSL сертификат
 Так как доступ к дашборду Marzban возможен только через защищенное соединение, нам необходимо подключить только что созданные сертификаты для перехода сайта панели на https. Для этого открываем и редактируем файл .env:
